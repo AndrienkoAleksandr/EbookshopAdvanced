@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2703886760">
+    <data-source source="LOCAL" name="Root driver - ebookshop@localhost" uuid="9038c011-f36b-4ed1-9dcd-cd3430a78aca">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/ebookshop</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfcedfcfdfdcdfcfdfc6dfc5dfda</user-password>
+      <schema-pattern>ebookshop.*</schema-pattern>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries>
+        <library>
+          <url>file://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

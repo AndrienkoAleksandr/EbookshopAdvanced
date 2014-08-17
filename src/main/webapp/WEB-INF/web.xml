@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+
+    <context-param>
+        <param-name>type</param-name>
+        <param-value>JDBC</param-value>
+    </context-param>
+    <context-param>
+        <param-name>urlBaseDate</param-name>
+        <param-value>jdbc:mysql://localhost:3306/ebookshop</param-value>
+    </context-param>
+    <context-param>
+        <param-name>userName</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>develop</param-value>
+    </context-param>
+
+
+  <display-name>Archetype Created Web Application</display-name>
+     <servlet>
+         <servlet-name>Download</servlet-name>
+         <servlet-class>com.bookshop.servlets.Downloader</servlet-class>
+     </servlet>
+
+    <servlet>
+        <servlet-name>EBookShopQueryOrder</servlet-name>
+        <servlet-class>com.bookshop.servlets.EshopQueryServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EBookShopQueryOrdered</servlet-name>
+        <servlet-class>com.bookshop.servlets.EshopOrderServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>com.bookshop.servlets.RegistrationServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LogIn</servlet-name>
+        <servlet-class>com.bookshop.servlets.LogInServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Uploader</servlet-name>
+        <servlet-class>com.bookshop.servlets.Uploader</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EBookShopQueryOrder</servlet-name>
+        <url-pattern>/eshopquery</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EBookShopQueryOrdered</servlet-name>
+        <url-pattern>/eshoporder</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Download</servlet-name>
+        <url-pattern>/download</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/regist</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>LogIn</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Uploader</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>StartFilter</filter-name>
+        <filter-class>com.bookshop.servlets.ContextFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>StartFilter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>com.bookshop.servlets.ContextListener</listener-class>
+    </listener>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/errors/500.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errors/404.html</location>
+    </error-page>
+    <error-page>
+        <exception-type>com.bookshop.exception.ConnectionException</exception-type>
+        <location>/errors/connection-failed.html</location>
+    </error-page>
+    <error-page>
+        <exception-type>com.bookshop.exception.DataBaseNotFound</exception-type>
+        <location>/errors/basedata-not-found.html</location>
+    </error-page>
+</web-app>
